@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'report.css' %}"> 
+    <title>Available Rooms</title>
+    </head>
+
+    <body>
+        <h1>SPORTSVIEW HOTEL</h1>
+        <h1>{{title}}</h1>
+        <div class="content">
+        <table border="1">
+        <thead>
+            <tr style="font-weight:bold; color:#004c2b; font-size:1.3em;">
+                <td>Serial number</td>
+                <td>Room number</td>
+                <td>Category</td>
+                <td>Capacity</td>
+    
+            </tr>
+            </thead>
+    
+            <tbody>
+                
+                {% for available in all %}
+                <tr style="font-weight:bold; font-size:1.1em;">
+                <td>{{available.id}}</td>
+                <td>{{available.number}}</td>
+                <td>{{available.category}}</td>
+                <td>{{available.capacity}}</td>
+                 </tr>
+                 {% endfor %}
+               
+            </tbody>
+    </table>
+    </div>
+    <br>
+    <button onclick="display()">Generate report</button>
+    <script>
+        function display(){
+            window.print();
+        }
+    </script>
+    
+    <a href="http://127.0.0.1:8000/room_select/">Go Back</a>
+    </body>
+</html>    

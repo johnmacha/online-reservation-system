@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'design.css' %}"> 
+    <title>Room detail</title>
+    </head>
+
+    <body>
+<div class = "content">
+<div class="image">
+    <!--img src="{% static 'images/Deluxe.jpg' %}"-->
+</div>
+<div class="room">
+    <div class = "home">
+        <a href="http://127.0.0.1:8000/room_add/">Back</a>&nbsp;&nbsp;&nbsp;
+        <a href="http://127.0.0.1:8000/room_available/">See available rooms</a>
+
+
+
+    </div>
+
+<div class ="room-info">
+    <h1>{{room_category}}</h1>
+    <h2>Add available room</h2>
+</div>
+
+<form id="booking-form" action="" method="post">
+    <label for="id_category">Category:</label>
+    <select name="category" id="id_category" name="category"> 
+        <option value selected>SELECT ROOM</option>
+        <option value="DELU">DELUXEDOUBLE</option>
+        <option value="DEL">DELUXEROOOM</option>
+        <option value="STAN">STANDARDROOM</option>
+        </select>
+    
+    <label for="id_number">Number:</label>
+    <input type="number" id="id_number" name="number" max="20"><br>
+
+    <label for="id_capacity">Capacity:</label>
+    <input type="number" id="id_capacity" name="capacity" max="9"><br>
+
+    {% csrf_token %}
+    <button type="submit">Make Available</button>
+    </div>
+
+    </form>
+
+    </div><!--Closing-->
+
+    </body>
+</html>

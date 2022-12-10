@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'design.css' %}"> 
+    <title>Room detail</title>
+    </head>
+
+    <body>
+<div class = "content">
+<div class="image">
+    <!--img src="{% static 'images/Deluxe.jpg' %}"-->
+</div>
+<div class="room">
+    <div class = "home">
+        <a href="http://127.0.0.1:8000/home/">Back</a>
+     </div>
+
+<div class ="room-info">
+    <h1>{{room_category}}</h1>
+    <h2>Make your booking here </h2>
+</div>
+
+<form id="booking-form" action="" method="POST">
+    {% csrf_token %}
+    <div class="input-div">
+    <label for="id_check_in">Check In:</label>
+    <input onchange="validateDate()" type="datetime-local" id="id_check_in" name="check_in" min="2022-11-18" required>
+    <script>
+  var Today = new Date();
+    var month = Today.getMonth() + 1;
+    var day  = Today.getDate();
+    var year = Today.getFullYear();
+    if (month < 10)
+     month = '0'+ month.toString();
+    if (day < 10)
+     day = '0' + day.toString();
+
+    var minDate = year + '-' +month +'-'+ day;
+    // var x = document.getElementById("id_check_in").value = "18-11-2022";
+     var x = document.getElementById("id_check_in").value;
+    // var x = document.getElementById("id_check_in");
+    // var defaultVal = x.defaultValue;
+    // var currentVal = x.value;
+
+    function validateDate() {
+        if (x < day) {
+        //  alert("invalid booking date")
+        }
+        return;
+
+    }
+
+    console.log(x);
+    console.log(Today);
+
+
+
+    // document.getElementbyId('id_check_in').setAttribute(min, minDate);
+    </script>
+
+    <label for="id_check_out">Check Out:</label>
+    <input onchange="validateDate()" type="datetime-local" id="id_check_out" name="check_out" min="2022-11-18" required><br>
+<!--     
+    <script>
+        var Today = new Date();
+          var month = Today.getMonth() + 1;
+          var day  = Today.getDate();
+          var year = Today.getFullYear();
+          if (month < 10)
+           month = '0'+ month.toString();
+          if (day < 10)
+           day = '0' + day.toString();
+      
+          var minDate = year + '-' +month +'-'+ day;
+          var y = document.getElementById("id_check_out").value;
+          
+      
+          function validateDate() {
+              if (y <= day) {
+              alert("invalid booking date")
+              }
+              return;
+      
+          }
+                    // document.getElementbyId('id_check_in').setAttribute(min, minDate);
+
+       -->
+          </script>
+    
+    <div class="book">
+    <img src="{% static 'images/book.jpg' %}">
+    </div>
+
+    <button type="submit">Book Room</button>
+    </div>
+
+    </form>
+
+
+
+<!--script>
+    Date.parse(date) > Date.now()
+</script-->
+   
+
+    </div><!--Closing-->
+
+    </body>
+</html>

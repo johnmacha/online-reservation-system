@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'booking.css' %}"> 
+    <title>Booking List</title>
+    <h1>Your Bookings<h1>
+    </head>
+    <body>
+
+<h3><a href="http://127.0.0.1:8000/home/" >Back </a> Welcome dear {{user.username}}</h3>
+<h2></h2>
+
+    <div class="container">
+    <div class="bookings" style="align-items:center;">
+        <div class="sub_container">
+
+            <table style="width:100%;">
+                <thead style=" border: 1px solid;">
+                    <tr style="font-weight:bold; color:purple; font-size:1.3em; width:100%;">
+                        <td>Serial number</td>
+                        <td>Category</td>
+                        <td>Room</td>
+                        <td>From</td>
+                        <td>To</td>
+                    </tr>
+                </thead>
+
+                <tbody>
+            {% for normal_booking in  user.booking_set.all %}
+            <tr style="font-weight:bold;">
+                <td>{{normal_booking.id}}</td>
+                <td>{{normal_booking.get_room_category}}</td>
+                <td>{{normal_booking.room}}</td>
+                <td>{{normal_booking.check_in}}</td>
+                <td>{{normal_booking.check_out}}</td>
+                 <td><div class="cancel"><a href="{{normal_booking.get_cancel_booking_url}}">Cancel Booking</a></div>
+                 </td>
+            </tr>
+
+            {% endfor %}
+                </tbody>
+            </table>
+<!--img src="{% static 'images/Deluxe.jpg '%}" alt=""-->
+ <!-- <div class="category"><h2>{{normal_booking.get_room_category}}</h2></div>    
+</div>
+<div class="room"><h3>Room: {{normal_booking.room}}</h3></div>
+<div class="from"><h3>From: {{normal_booking.check_in}}</h3></div>
+<div class="to"><h3>To: {{normal_booking.check_out}}</h3></div> -->
+<!--div class="capacity"><h3>Capacity: {{normal_booking.room.capacity}}</h3></div-->
+
+<!--div class="price"><h3>Price: {{normal_booking.destination.price}}</h3></div-->
+
+
+   <!--{% for normal_booking in user.booking_set.all %}
+           {{normal_booking.room}}
+           {% endfor %}-->
+
+    <!--{% for expert_booking in user.booking.all %}
+           {{expert_booking.title}}
+           {% endfor %}-->
+</div>
+</div>
+</div>
+<div class="payment"><a href="http://127.0.0.1:8000/accounts/registration">Make payment</a></div>
+
+
+
+    </body>
+</html>

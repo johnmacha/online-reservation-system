@@ -1,0 +1,122 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'register.css' %}"> 
+    </head>
+
+    <body>
+        <div class="center">
+        <h1>Register</h1>
+ 
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <img style="width:128px;height:128px;border-radius:50%;" src="{% static 'images/register1.jpg' %}" >
+            <div class = "container">
+            <form action="" method="post">
+                <div class="login">
+
+                {% csrf_token %}
+             <label for="id_first_name" style="font-size:1.3em;">First name</label>
+             <input type="text" name="first_name" maxlength="20" id="id_first_name"><br><br>
+
+             <label for="id_second_name" style="font-size:1.3em;">Second name</label>
+             <input type="text" name="second_name" maxlength="20" id="id_second_name"><br><br>             
+             
+             <label for="id_last_name" style="font-size:1.3em;">Last name</label>
+             <input type="text" name="last_name" maxlength="20" id="id_last_name"><br><br>
+
+             <label for="id_tel_number" style="font-size:1.3em;">Tel number</label>
+             <input type="number" name="tel_number"  id="id_tel_number"><br><br>
+
+             <label for="id_location" style="font-size:1.3em;">Location</label>
+             <input type="text" name="location" maxlength="20" id="id_location"><br><br>
+
+             <label for="id_postal_code" style="font-size:1.3em;">Postal code</label>
+             <input type="number" name="postal_code"  id="id_postal_code"><br><br>
+
+             <label for="id_id_number" style="font-size:1.3em;">Id number</label>
+             <input type="number" name="id_number"  id="id_id_number"><br><br>
+
+             <label for="id_gender" style="font-size:1.3em;">Gender</label>
+             <select name="gender" id="id_gender">
+                <option value = '' disabled selected>SELECT GENDER</option>
+                <option value="male">MALE</option>
+                <option value="female">FEMALE</option>
+                <option value="other">OTHER</option>
+             </select><br><br>
+
+             <label for="id_date_of_birth" style="font-size:1.3em;">Date of birth</label>
+             <input type="date" name="date_of_birth" maxlength="20" id="id_date_of_birth"><br><br>
+
+             <label for="id_date_of_register" style="font-size:1.3em;">Date of register</label>
+             <input type="date" name="date_of_register" maxlength="20" id="id_date_of_register"><br><br>
+
+             <label for="id_email" style="font-size:1.3em;">Email</label>
+             <input type="email" name="email" maxlength="40" id="id_email"><br><br>
+
+             <input type="submit" class="submit" value="Signup">
+        </form>
+        <div>
+            <script>
+                var Today = new Date();
+                  var month = Today.getMonth() + 1;
+                  var day  = Today.getDate();
+                  var year = Today.getFullYear();
+                  if (month < 10)
+                   month = '0'+ month.toString();
+                  if (day < 10)
+                   day = '0' + day.toString();
+              
+                  var minDate = year + '-' +month +'-'+ day;
+                  var x = document.getElementById("id_date_of_register").value;
+                  
+              
+                  function validateDate() {
+                      if (x < day) {
+                      alert("invalid booking date")
+                      }
+                      return;
+              
+                  }
+              
+              
+                  // document.getElementbyId('id_check_in').setAttribute(min, minDate);
+                  </script>
+
+            <script>
+        
+//         var Today = new Date();
+//    var month = Today.getMonth() + 1;
+//    var day  = Today.getDate();
+//    var year = Today.getFullYear();
+//    if (month < 10)
+//      month = '0'+ month.toString();
+//    if (day < 10)
+//      day = '0' + day.toString();
+
+//    var minDate = year + '-' +month +'-'+ day;
+//   document.getElementbyId('id_check_in').setAttribute(min, minDate);
+function checkDate() {
+   var selectedText = document.getElementById('id_date_of_register').value;
+   var selectedDate = new Date(selectedText);
+   var now = new Date();
+   if (selectedDate < now) {
+    alert("Date must be in the future");
+   }
+ }
+<input id="datepicker" onchange="checkDate()" required class="datepicker-input" type="date" data-date-format="yyyy-mm-dd" ></input>
+
+            </script>
+            
+            <a href="http://127.0.0.1:8000/home/" style="font-size:1.1em;">Go Back<a>
+ 
+                {% for message in messages %}
+    <h3 style="color:red;text-align:center;">{{message}}</h3>
+    {% endfor %}
+            </div>
+    
+    </body>
+</html>

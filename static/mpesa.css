@@ -1,0 +1,49 @@
+*{
+    text-align:center;
+    font-weight: bold;
+}
+body{
+    background-color:aquamarine;
+    color:black;
+    font-family:sans-serif;
+    line-height:1.25;
+    height:100vh;
+    
+    }
+  
+    a{
+        text-decoration: none;
+        justify-content: space-between;
+        color:#555;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    a:hover{
+        color: white;
+    }
+    
+    form{
+    display:flex;
+    flex:0.4 1 auto;
+    flex-direction:column;
+    }
+    input, button{
+        flex:1;
+        width:300px;
+        border-radius:0.5rem;
+        line-height:1.5;
+        font-size:1.5rem;
+        color:#555;
+    }
+    button{
+        background-color:#dfdfdf ;
+        color:blue;
+        outline:none;
+        align-items: center;
+    
+    }
+    button:hover{
+        color:#ffffff;
+        background-color:blue;
+        cursor:pointer;
+    }

@@ -1,0 +1,51 @@
+{%load static%}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'report.css' %}">
+
+
+</head>
+<body>
+    <h1>SPORTSVIEW HOTEL</h1>
+    <h1>{{title}}</h1>
+    <div class="content">
+    <table border="1">
+    <thead>
+        <tr style="font-weight:bold; color:#004c2b; font-size:1.3em;">
+            <td>Serial number</td>
+            <td>User</td>
+            <td>Room</td>
+            <td>Check-in</td>
+            <td>Check-out</td>
+
+        </tr>
+        </thead>
+
+        <tbody>
+            
+            {% for display in list %}
+            <tr style="font-weight:bold; font-size:1.1em;">
+            <td>{{display.id}}</td>
+            <td>{{display.user}}</td>
+            <td>{{display.room}}</td>
+            <td>{{display.check_in}}</td>
+            <td>{{display.check_out}}</td>
+             </tr>
+             {% endfor %}
+           
+        </tbody>
+</table>
+</div>
+<br>
+<button onclick="display()">Generate report</button>
+<script>
+    function display(){
+        window.print();
+    }
+</script>
+
+<a href="http://127.0.0.1:8000/room_add/">Go Back</a>
+</body>
+</html>

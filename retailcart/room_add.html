@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'design.css' %}"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Destinations</title>
+    </head>
+
+    <body>
+<div class = "content">
+<div class="image">
+    <!--img src="{% static 'images/Deluxe.jpg' %}"-->
+</div>
+<div class="room">
+    <div class = "home">
+        <a href="http://127.0.0.1:8000/admins/">Back</a>&nbsp;&nbsp;&nbsp;
+        <a href="http://127.0.0.1:8000/reports/">Generate report</a>&nbsp;&nbsp;&nbsp;
+        <a href="http://127.0.0.1:8000/list/">See Bookings</a>&nbsp;&nbsp;&nbsp;
+        <a href="http://127.0.0.1:8000/room_select/">Make room available</a>
+
+
+     </div>
+     <h2>Add a room</h2>
+
+<form  action="" method="POST" enctype="multipart/form-data">
+    <div class="container">
+    {% csrf_token %}
+    {{form.as_p}}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+   <button type="submit">Upload</button>
+     </div>
+    </form><br>
+
+    <!--Closing-->
+
+    </body>
+</html>

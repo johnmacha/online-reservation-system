@@ -1,0 +1,111 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html >
+    
+    <meta charset = "UTF-8">
+    <head>            
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <script src="{% static 'shopping.js' %}">
+            function newFunction(){
+                document.write('');
+            }
+        </script>
+    </head>
+
+    <header>
+        
+    
+       <script type="text/javascript">
+        window.addEventListener("scroll", function(){
+            var header = document.querySelector("header");
+            header.classList.toggle("sticky",window.scrollY , 0);
+        })
+       </script>
+       
+    </header>
+    <div style="text-align: center; margin-top:150px;" class="bag">
+        </div>
+
+    <body>     
+        
+
+    <!--div class="cover">
+<script>
+    document.getElementById('store').onclick="headtest.html";
+</script>
+</div-->
+{% for room_category, room_url in room_list %}
+  {% for dest in dests %}
+  <div class="fade-in">
+   <div class="products">
+    <a href="{{room_url}}">
+    <div class="image1">
+    <img src="{{dest.img.url}}" alt="">
+    {{forms5.as_p}}
+    <a class="add-cart cart1" href="#">BOOK</a>
+    </div>
+    </div>
+    </div>
+{% endfor %}
+{% endfor %}
+<br><br><br>
+
+<script type="text/javascript">
+const faders = document.querySelectorAll
+('.fade-in');
+
+const appearOptions = {
+    threshold: 1,
+    /*rootMargin:"0px 0px -300px 0px"*/
+};
+
+const appearOnScroll = new IntersectionObserver(
+    function(
+entries, appearOnScroll
+){
+    entries.forEach(entry =>{
+        if (!entry.isIntersecting){
+            return;
+        }else{
+            entry.target.classList.add("appear");
+            appearOnScroll.unobserve(entry.target);
+        }
+    })
+}, appearOptions) ;
+faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+});
+</script>
+
+     <div class="scroll">
+        <img src="{% static './images/scroll_up2.png' %}">
+       
+    </div>
+    <script type="text/javascript">
+        const scroll = document.querySelector(".scroll");
+        scroll.addEventListener('click',function(){
+        window.scrollTo(0,0);
+        });
+        document.getElementById('remove').onclick('newFunction()');
+
+    </script>
+
+    <script src="{% static 'shopping.js' %}"></script>
+
+
+        <script type="text/javascript">
+            document.addEventListener("mousemove", parallax);
+            function parallax(e){
+                this.querySelectorAll('.layer').forEach(layer => {
+                    const speed = layer.getAttribute('data-speed')
+                    const x = (window.innerWidth - e.pageX*speed)/100
+                    const y = (window.innerHeight - e.pageY*speed)/100
+
+                    layer.style.transform = `translateX(${x}px) translateY(${y}px) `
+                })
+            }
+        </script>
+
+</body>
+</html>

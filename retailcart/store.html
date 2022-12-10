@@ -1,0 +1,140 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html >
+    
+    <meta charset = "UTF-8">
+    <head>   
+        <meta name="viewport" content="width=device-width, initial-scale=1">       
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <script src="{% static 'shopping.js' %}">
+            function newFunction(){
+                document.write('');
+            }
+        </script>
+    </head>
+    <header>
+        <img src="{% static 'images/logo.png' %}" style="width:250px; height:250px;margin-left: 39%;">
+        <!-- <h1 style="font-size:3.0em;">SPORTSVIEW HOTEL</h1>  -->
+        <hr>
+
+        <div class="navbar">
+        <nav>
+            <ul class="position">            
+            {% if user.is_authenticated %}
+            <h3 style="font-style:italic;font-weight:bold;color: rgb(96, 146, 20);
+            font-size:1.4em">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hola {{user.username}}<h3>
+            <li class="nav_item"><a href="http://127.0.0.1:8000/accounts/logout">LOGOUT</a></li>
+
+            {% else %}
+            <li class="nav_item"><a href="accounts/register">REGISTER</a></li>
+            <li class="nav_item"><a href="accounts/login">LOGIN</a></li>
+
+           {% endif %}
+            <li class="nav_item"><a href="http://127.0.0.1:8000/">HOME</a></li>
+            <li class="nav_item"><a href="http://127.0.0.1:8000/accounts/about">ABOUT</a></li>
+            <li class="nav_item"><a href="http://127.0.0.1:8000/booking_list/">BOOKINGS</a></li>
+            <li class="nav_item"><a href="http://127.0.0.1:8000/accounts/registration">REGISTER</a></li>
+            <li class="nav_item"><a href="#contact">CONTACT</a></li>
+
+        </ul>
+
+        <!--h2>Check rooms available<h2-->
+       </nav>
+       
+    </div>
+    
+       <!--script type="text/javascript">
+        window.addEventListener("scroll", function(){
+            var header = document.querySelector("header");
+            header.classList.toggle("sticky",window.scrollY , 0);
+        })
+       </script-->
+       
+    </header>
+    <div style="text-align: center; margin-top:150px;" class="bag">
+        </div>
+
+    <body>     
+        
+  {% for dest in dests %}
+  <!--div class="fade-in"-->
+   <div class="products">
+    <div class="image1">
+    <img src="{{dest.img.url}}" alt="">    
+    <h3>{{dest.name}}</h3>
+    <!--h3>{{dest.tag}}</h3-->
+    <h3>{{dest.desc}}</h3>
+    <h3>Sh.{{dest.price}}</h3>
+    <br>  <br>  <br>  <br> <br> 
+    <a class="add-cart cart1" href="http://127.0.0.1:8000/room/{{dest.desc}}">BOOK</a>
+    <!--/div-->
+    </div>
+    </div>
+{% endfor %}
+<br><br><br>
+
+<script type="text/javascript">
+const faders = document.querySelectorAll
+('.fade-in');
+
+const appearOptions = {
+    threshold: 1,
+    /*rootMargin:"0px 0px -300px 0px"*/
+};
+
+const appearOnScroll = new IntersectionObserver(
+    function(
+entries, appearOnScroll
+){
+    entries.forEach(entry =>{
+        if (!entry.isIntersecting){
+            return;
+        }else{
+            entry.target.classList.add("appear");
+            appearOnScroll.unobserve(entry.target);
+        }
+    })
+}, appearOptions) ;
+faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+});
+</script>
+
+     <div class="scroll">
+        <img src="{% static './images/scroll_up2.png' %}">
+       
+    </div>
+    <script type="text/javascript">
+        const scroll = document.querySelector(".scroll");
+        scroll.addEventListener('click',function(){
+        window.scrollTo(0,0);
+        });
+        document.getElementById('remove').onclick('newFunction()');
+
+    </script>
+
+    <script src="{% static 'shopping.js' %}"></script>
+
+<section class="sec1" id="contact"> 
+                    <h1>Contact Us</h1>&nbsp; &nbsp;&nbsp;&nbsp;
+         <img src="{% static 'images/Whatsapp1.png' %}" data-speed="1.1" class="layer">&nbsp;&nbsp;&nbsp;<h2>0791285291</h2>      
+            <img src="{% static 'images/mail1.png' %}" data-speed="1.2" class="layer">&nbsp;&nbsp;&nbsp;<h2>jontehmacha@gmail.com</h2>
+                    <img src="{% static 'images/insta.png' %}" data-speed="1.1" class="layer">&nbsp;&nbsp;&nbsp;<h2>@jontehmacha</h2> 
+                </div>                    
+        </section>
+        <script type="text/javascript">
+            document.addEventListener("mousemove", parallax);
+            function parallax(e){
+                this.querySelectorAll('.layer').forEach(layer => {
+                    const speed = layer.getAttribute('data-speed')
+                    const x = (window.innerWidth - e.pageX*speed)/100
+                    const y = (window.innerHeight - e.pageY*speed)/100
+
+                    layer.style.transform = `translateX(${x}px) translateY(${y}px) `
+                })
+            }
+        </script>
+
+</body>
+</html>

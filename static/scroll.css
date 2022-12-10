@@ -1,0 +1,33 @@
+img{
+    height:100%;
+}
+
+.scroll{
+    position:fixed;
+    right:100px;
+    bottom:10px;
+    width:50px;
+    height:50px;
+    
+}
+
+
+def add(request):
+
+ #val1 = int(request.POST['num1'])
+ #val2 = int(request.POST['num2'])
+ #res = val1 + val2
+
+ #val = request.POST['name1']
+ #name = val
+ 
+
+#When you want to fetch data use GET
+#When you want to post data use POST
+
+ #return render(request,'result.html', {'result':res})
+
+#MVT MODEL VIEW TEAMPLATE
+#MODEL works with data
+#VIEW works with logic
+#TEMPLATE works with layouts

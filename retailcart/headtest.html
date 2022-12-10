@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+      
+    </head>
+
+   
+        <header>
+        
+            
+            <nav>
+            <ul>
+                <h1>WANANCHI STORE</h1>
+                <li ><a href="store.html">HOME</a></li>
+                <li ><a href="about.html">ABOUT</a></li>
+                
+            </ul></nav>
+          
+        </header>
+        <div class="bag">
+            <img style="width: 46px; height:46px;margin-top:100px;" src="{% static 'Cart_pic.png' %}"><br>
+            <li class="count">Cart Add:<span>0</span></li>
+            </div>
+        <body>
+            <div class ="navigation">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <span class="icon"> <img src="{% static 'images/home.png' %}"></span>
+                            <span class="title">Home</span>
+                            </a>
+                    </li>
+        
+                    
+                        <li>
+                            <a href="#">
+                                <span class="icon"> <img src="{% static 'images/profile.png'%}"></span>
+                                <span class="title">Profile</span>
+                                </a>
+                        </li>
+                    
+                        <li>
+                            <a href="#">       
+                                <span class="icon"> <img src="{% static 'images/message.png' %}"></span>
+                                <span class="title">Messages</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="#">                          
+                                <span class="icon"> <img src="{% static 'images/help.png' %}"></span>
+                                <span class="title">Help</span>
+                                </a>
+                        </li>
+        
+                        <li>
+                            <a href="#">                           
+                                <span class="icon"> <img src="{% static 'images/settings.png' %}"></span>
+                                <span class="title">Settings</span>
+                                </a>
+                        </li>
+                                    
+                        <li>
+                            <a href="#">                           
+                                <span class="icon"> <img src="{% static 'images/pass.png' %}"></span>
+                                <span class="title">Login</span>
+                                </a>
+                        </li>
+                    
+                        <li>
+                            <a href="#">                        
+                                <span class="icon"> <img src="{% static 'images/Logout.png' %}"></span>
+                                <span class="title">Log Out</span>
+                                </a>
+                        </li>
+                </ul>
+                </div>
+                
+        <div class="toggle" onclick="toggleMenu()"></div>
+        <script type="text/javascript">
+            function toggleMenu() {
+               let navigation = document.querySelector('.navigation');
+               let toggle = document.querySelector('.toggle');
+               navigation.classList.toggle('active');
+               toggle.classList.toggle('active');
+            }
+            </script>
+        </body>
+    </html>

@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}"> 
+    <title>Room List</title>
+    <a href="http://127.0.0.1:8000/">Back</a>
+
+    </head>
+
+    <body>
+        <div class="login">
+    <form action="" method="POST" enctype="multipart/form-data">
+ {% csrf_token %}
+ {{form.as_p}}
+
+<button type="submit">Upload</button>
+    </form>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,98 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    justify-content: space-between;
+    color:#555;
+    cursor: pointer;
+    font-weight: bold;
+}
+a:hover{
+    color: white;
+}
+
+.book img{
+width:400px;
+height:400px;
+}
+
+body{
+background-color:aquamarine;
+color:black;
+font-family:sans-serif;
+line-height:1.25;
+height:100vh;
+}
+.content{
+display:flex;
+flex-direction:row ;
+flex-wrap:wrap ;
+width:100%;
+justify-content:left;
+}
+
+.image{
+    flex:0.3;
+}
+
+.room{
+    flex:0.5;
+    margin:2rem;
+    display:flex;
+    text-align:left;
+    align-items:start;
+    flex-direction:column ;
+}
+
+.home{
+    flex:0.2;
+
+}
+.room_info{
+flex:0.4;
+margin:5rem 1rem;
+}
+form{
+display:flex;
+flex:0.4 1 auto;
+flex-direction:column;
+}
+/*Inside sub divs*/
+.image img{
+flex:1;
+max-height:99.2vh;
+}
+
+.input-div{
+    flex:1 1 auto;
+    margin:1rem;
+    display:flex;
+    flex-direction:column ;
+    justify-content: space-between;
+}
+.input-div, input:hover{
+    cursor:pointer;
+}
+input, button{
+    flex:1;
+    width:300px;
+    border-radius:0.5rem;
+    line-height:1.5;
+    font-size:1.5rem;
+    color:#555;
+}
+button{
+    background-color:#dfdfdf ;
+    color:blue;
+    outline:none;
+    align-items: center;
+
+}
+button:hover{
+    color:#ffffff;
+    background-color:blue;
+    cursor:pointer;
+}

@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'mpesa.css'%}">
+        <head>
+    <body>
+          <a href="http://127.0.0.1:8000/booking_list/">Back</a>&nbsp;&nbsp;&nbsp;
+          <a href="http://127.0.0.1:8000/home/">Home</a>&nbsp;&nbsp;&nbsp;
+          <a href="" >Get receipt</a>
+
+        <form action="/mpesa/lipa/" method="post">
+            &nbsp;
+            <label for="first_name">First name
+            <input type="text" name="first_name" id="id_first_name"></label>
+            <div><br></label>
+
+            <label for="second_name">Second name</label>
+            <input type="text" name="second_name" id="id_second_name"><br><br>          
+            
+            <label for="phone_number">Phone number</label>
+            <input type="number" name="phone_number" id="id_phone_number" placeholder="254..."><br> <br>           
+            
+            <label for="amount">Amount</label>
+            <input type="number" name="amount" id="id_amount" max="200000"><br><br>
+            {% csrf_token %}
+            <button type="submit">Pay</button>
+            </form>
+    </body>
+</html>

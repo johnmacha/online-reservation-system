@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'register.css' %}"> 
+    </head>
+
+    <body>
+            <div class="center">
+            <h1>Signup</h1>
+
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <img style="width:128px;height:128px;border-radius:50%;" src="{% static 'images/register2.png' %}" >
+            <div class = "container">
+
+                <form  method="POST" action="">
+                     {% csrf_token %}
+                    <!--{{form1.as_p}}-->
+
+
+                <div class="login">
+             <label for="first_name" style="font-size:1.3em;">First name   </label>{{form1.first_name}}<br><br>
+             <label for="last_name" style="font-size:1.3em;">Last name   </label>{{form1.last_name}}<br><br>
+             <label for="username" style="font-size:1.3em;">Username   </label>{{form1.username}}<br><br>
+             <label for="email" style="font-size:1.3em;">Email   </label>{{form1.email}}<br><br>
+             <label for="password1" style="font-size:1.3em;">Enter password</label>{{form1.password1}}<br><br>
+             <label for="password2" style="font-size:1.3em;">Confirm password</label>{{form1.password2}}<br><br>
+
+
+             {{form1.errors}}
+             <input type="submit" class="submit" value="Signup"><br>
+
+            <label for="text" style="font-size:1.1em;">Already have an account?</label>
+
+            <a href="http://127.0.0.1:8000/accounts/login" style="font-size:1.1em;">Signin<a><br>
+                <a href="http://127.0.0.1:8000/" style="font-size:1.1em;">Go Home<a>
+        </div>
+        </form>
+            </div>
+ 
+    <!--{% for message in messages %}
+    <h3 style="color:red;text-align:center;">{{message}}</h3>
+    {% endfor %}-->
+            </div>
+    
+    </body>
+</html>

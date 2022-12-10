@@ -1,0 +1,51 @@
+
+*{
+    background-color: aquamarine;
+}
+
+form{
+    margin-top: 5%;
+    justify-content: center;
+    color: chocolate;
+    font-weight: 600;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+div .container{
+    align-self: center;
+}
+
+form .login{
+    
+    align-items: center;
+    text-align: center;
+    border: none;
+
+
+}
+
+input{
+    flex-direction: right;
+    background-color: aliceblue;
+    margin-left: 5.7%;
+}
+
+button{
+    font-weight: bold;
+    font-size: 450;
+    background-color:yellowgreen ;
+    border-radius: 7px;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: beige;
+}
+
+a:hover{
+color: mediumorchid;
+}
+
+form h1{
+    margin-left: 10%;
+}
